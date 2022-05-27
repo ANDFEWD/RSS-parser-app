@@ -11,7 +11,7 @@
 ## Installation
 
 ```
-git clone https://github.com/dsyncerek/rss-parser-app.git
+git clone https://github.com/ANDFEWD/RSS-parser-app
 cd rss-parser-app
 npm install
 docker build -t rss-parser-app:v1 .
