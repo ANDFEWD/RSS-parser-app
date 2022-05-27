@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres
+    networks:
+      - cntr-network
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgresrss
+  
+  app:
+    image: rss-parser-app:v1
+    ports:
+      - 3000:3000
+    working_dir: /home/node/app
+    networks:
+      - cntr-network
+    links:
+      - postgres
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  cntr-network:
+    driver: bridge
